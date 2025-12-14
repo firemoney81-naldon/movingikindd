@@ -1,23 +1,417 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+   <style>
+        :root {
+            --primary-color: #007bff; /* 부드러운 파랑 */
+            --secondary-color: #28a745; /* 활기찬 초록 */
+            --background-light: #f8f9fa; /* 밝은 배경 */
+            --background-soft: #e9ecef; /* 부드러운 구분선 */
+            --text-dark: #343a40; /* 진한 텍스트 */
+            --text-light: #6c757d; /* 연한 텍스트 */
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #ffffff;
+        }
+
+        header, main, footer {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--background-soft);
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: var(--text-dark);
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--background-soft);
+            padding-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .section-box {
+            background-color: var(--background-light);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-size: 1.1em;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 25px;
+            transition: background 0.3s ease;
+            font-weight: 700;
+        }
+        .cta-btn:hover { background-color: #0056b3; }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95em;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid var(--background-soft);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f3f3f3;
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 5px solid var(--secondary-color);
+            background-color: #e6f7e9;
+            margin: 25px 0;
+            padding: 15px 20px;
+            color: var(--text-dark);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="tel"],
+        .input-group input[type="email"],
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+
+        .form-section {
+            background-color: #f7f9fc;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--background-soft);
+        }
+
+        .external-link {
+            display: block;
+            margin: 10px 0;
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "2026년 원룸포장이사 가격 완벽 분석: 1톤 이사 비용 산정 기준 및 절약 팁",
+      "author": {
+        "@type": "Organization",
+        "name": "전국 포장이사 가격 비교 센터"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "전국 포장이사 가격 비교 센터",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://example.com/logo-price.png"
+        }
+      },
+      "datePublished": "2025-12-14",
+      "dateModified": "2026-01-01",
+      "articleSection": ["이사 비용", "원룸이사", "포장이사", "지역별 가격"]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>2026년 **원룸포장이사 가격** 완벽 분석: 1톤 이사 비용 산정 기준 및 절약 팁</h1>
+        <p>전국 주요 도시별(서울, 경기, 인천, 부산, 대전 등) 최신 **1톤 포장이사 가격** 정보와 합리적인 비용 산정 노하우를 공개합니다. 지금 바로 투명한 무료 견적을 받아보세요.</p>
+        <a href="#estimate-form" class="cta-btn">💰 2026년 내 이사 견적 바로 확인하기</a>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section class="section-box" id="overview">
+            <h2>🥇 **원룸포장이사 가격**의 이해와 2026년 최신 동향</h2>
+            <p><strong>원룸포장이사 가격</strong>은 단순히 짐을 옮기는 비용을 넘어, 이사의 질과 만족도를 결정하는 핵심 요소입니다. 특히 1인 가구의 증가와 함께 <strong>원룸이사 비용</strong>에 대한 관심은 폭발적으로 늘고 있습니다. 2026년의 이사 시장은 인건비 상승과 물류 비용 변동으로 인해 전년 대비 소폭의 가격 상승이 예상되지만, <span style="font-weight: bold; color: var(--primary-color);">정확한 짐량 산출과 이사 형태 선택</span>을 통해 충분히 합리적인 가격으로 이사를 진행할 수 있습니다.</p>
+            <p>많은 분들이 <strong>1톤 포장이사 가격</strong>을 기본 기준으로 잡고 있으나, 실제 비용은 짐의 양이 1톤을 초과하거나(1.5톤), 운송 거리, 작업 환경(고층, 사다리차 유무), 그리고 이사 날짜(손 없는 날 등)에 따라 크게 달라집니다. 본 페이지에서는 복잡한 <strong>원룸포장이사 비용</strong> 산정 기준을 명확히 제시하고, 전국 어디에서나 (서울, 경기, 인천, 부산, 대구, 대전, 광주, 울산, 세종, 강원, 충북, 충남, 전북, 전남, 경북, 경남, 제주) 적용 가능한 실질적인 가격 절약 팁을 안내합니다.</p>
+        </section>
+
+        <section class="section-box" id="price-factors">
+            <h2>💸 원룸이사 비용을 결정하는 5가지 핵심 요소</h2>
+            <p><strong>원룸포장이사 가격</strong>은 정찰제가 아니며, 아래 5가지 변수에 따라 수십만 원의 차이가 발생할 수 있습니다. 이 요인들을 이해하는 것이 이사 견적을 정확하게 비교하는 첫걸음입니다.</p>
+            <ol>
+                <li><strong>짐의 양 (용달 차량 톤수):</strong>
+                    <p>가장 중요한 요소입니다. 일반적인 1인 가구는 1톤 용달 차량 한 대로 충분하지만, 가전제품(냉장고, 세탁기)이나 가구(침대, 책장)가 많은 경우 1.5톤 또는 2.5톤까지 필요할 수 있습니다. <strong>1톤 포장이사</strong> 기준은 작업자 1~2명 투입을 전제로 합니다. 짐이 많아지면 차량 크기(톤수)와 함께 투입되는 인력(인건비)이 늘어나 <strong>원룸이사 비용</strong>이 증가합니다.</p>
+                </li>
+                <li><strong>작업 조건 (층수 및 사다리차):</strong>
+                    <p>이사 가는 집과 오는 집의 층수가 높고 엘리베이터 사용이 어렵거나 불가능하다면 사다리차 비용이 추가됩니다. 특히 3층 이상의 고층 이사에서 사다리차는 필수적이며, 이 비용은 지역 및 층수에 따라 10만 원에서 20만 원 이상까지 발생합니다. 사다리차를 사용하는 것 역시 <strong>원룸포장이사 가격</strong>에 큰 영향을 미칩니다.</p>
+                </li>
+                <li><strong>운송 거리 및 지역:</strong>
+                    <p>이사 거리가 멀수록 유류비와 기사 인건비가 추가됩니다. 서울에서 경기도권(수원, 용인, 고양 등)으로의 이사는 일반적인 시내 이사보다 비용이 더 발생합니다. 또한, 제주도나 도서 산간 지역처럼 특수 운송이 필요한 경우에도 추가 비용이 발생합니다.</p>
+                </li>
+                <li><strong>이사 형태 (포장 vs. 반포장 vs. 일반):</strong>
+                    <p><strong>원룸포장이사</strong>는 포장, 운반, 정리까지 모든 것을 업체가 전담하여 가장 비쌉니다. <a href="https://namu.wiki/w/포장이사" target="_blank" class="external-link">포장이사의 정의 및 범위 (나무위키)</a>. **반포장이사 가격**은 고객이 큰 짐의 포장만 맡기고 잔짐 포장과 정리를 직접 하는 형태로, 포장이사 대비 약 10~20% 저렴할 수 있습니다. 가장 저렴한 일반 이사는 업체가 운반만 담당합니다.</p>
+                </li>
+                <li><strong>이사 날짜 및 시간:</strong>
+                    <p>손 없는 날(음력 9, 10, 19, 20, 29, 30일), 주말, 월말, 공휴일은 이사 수요가 몰려 비용이 최대 30%까지 할증됩니다. 상대적으로 수요가 적은 주중 중간 날짜(화/수/목)와 비수기(1월, 7월, 8월)를 선택하면 <strong>원룸포장이사 가격</strong>을 크게 낮출 수 있습니다.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="section-box" id="price-table">
+            <h2>📈 2026년 전국 주요 지역별 **원룸포장이사 (1톤 기준) 평균 비용**</h2>
+            <p>다음 표는 2026년 상반기를 기준으로 추정된 <strong>1톤 포장이사 가격</strong>의 평균 범위를 보여줍니다. 이는 순수 인건비와 운송비가 포함된 기준이며, 사다리차, 에어컨 탈부착 등 옵션 비용은 제외된 금액입니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>지역</th>
+                        <th>1톤 포장이사 평균 가격 (원)</th>
+                        <th>포함 서비스</th>
+                        <th>관련 주요 키워드</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>서울/수도권</td>
+                        <td>500,000 ~ 750,000</td>
+                        <td>포장, 운송, 배치, 청소 서비스 일부</td>
+                        <td>서울 원룸이사 비용, 경기 1톤 이사, 인천 반포장이사 가격, 수원, 용인, 고양, 성남, 부천</td>
+                    </tr>
+                    <tr>
+                        <td>영남권</td>
+                        <td>450,000 ~ 700,000</td>
+                        <td>포장, 운송, 배치, 정리 서비스 일부</td>
+                        <td>부산 원룸포장이사 가격, 대구, 울산, 창원, 김해, 포항 1톤 이사</td>
+                    </tr>
+                    <tr>
+                        <td>충청권</td>
+                        <td>400,000 ~ 650,000</td>
+                        <td>포장, 운송, 배치</td>
+                        <td>대전 원룸이사 비용, 세종 1톤 포장, 청주, 천안, 아산 이사</td>
+                    </tr>
+                    <tr>
+                        <td>호남권</td>
+                        <td>400,000 ~ 650,000</td>
+                        <td>포장, 운송, 배치</td>
+                        <td>광주 원룸포장이사, 전주, 순천, 목포 이사 비용</td>
+                    </tr>
+                    <tr>
+                        <td>강원/제주</td>
+                        <td>550,000 ~ 800,000</td>
+                        <td>포장, 운송 (추가 거리/특수 운반 비용 발생 가능)</td>
+                        <td>강릉, 춘천, 원주 원룸이사, 제주도 이사 비용, 서귀포 1톤</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.9em; color: var(--text-light);">*주의: 위 금액은 참고용이며, 정확한 <strong>원룸포장이사 가격</strong>은 현장 방문 견적을 통해서만 확정됩니다. 이사 성수기(3월, 4월, 9월, 10월)에는 상한가 이상으로 상승할 수 있습니다.</p>
+        </section>
+
+        <section class="section-box" id="keyword-list">
+            <h2>🌐 전국 서비스 가능 지역 및 관련 키워드 (SEO 강화)</h2>
+            <p>당사는 전국 주요 도시와 세부 지역까지 폭넓은 <strong>원룸포장이사</strong> 서비스를 제공하며, 고객님의 위치와 관계없이 합리적인 <strong>1톤 포장이사 가격</strong>을 제시합니다. 아래는 고객님들이 자주 검색하는 전국 주요 지역 및 연관 키워드 목록입니다. 이 지역 어디든 방문 견적 및 이사 상담이 가능합니다.</p>
+            <p style="font-size: 0.95em;">
+                <strong>주요 검색 키워드:</strong> 원룸이사 비용, 1톤 포장이사, 반포장이사 가격, 소형 이사, 용달이사 비용, 2026년 이사, 이삿짐센터 추천, 짐량별 이사 가격.<br>
+                <strong>전국 지역별 키워드:</strong> 서울, 경기, 인천, 부산, 대구, 대전, 광주, 울산, 세종, 강원, 충북, 충남, 전북, 전남, 경북, 경남, 제주. 수원, 용인, 고양, 성남, 부천, 안산, 청주, 천안, 아산, 포항, 창원, 김해, 전주, 순천, 목포, 제주 시, 서귀포, 구미, 평택, 화성, 남양주, 파주, 의정부, 김포, 광명, 군포, 오산, 시흥, 광주(경기), 하남, 이천, 안성, 양주, 여주, 과천, 의왕, 동두천, 연천, 가평, 양평, 춘천, 원주, 강릉, 속초, 동해, 태백, 삼척, 제천, 충주, 단양, 보령, 서산, 논산, 공주, 계룡, 김천, 안동, 영주, 상주, 문경, 경산, 진주, 통영, 사천, 거제, 밀양, 양산, 당진, 서천, 태안. (총 83개 이상 키워드 통합)
+            </p>
+            <blockquote>
+                정부에서는 소비자 보호를 위해 이사 서비스에 대한 표준 약관을 권고하고 있습니다. 이사 계약 시 필히 확인하시기 바랍니다.
+                <a href="https://www.ftc.go.kr/www/bizComm_standard.do" target="_blank" class="external-link">공정거래위원회 이사화물 표준약관 확인하기</a>
+            </blockquote>
+        </section>
+
+        <section class="section-box" id="tips">
+            <h2>✅ **원룸포장이사 가격** 절약 및 이사 준비 노하우</h2>
+            <h3>1. 정확한 짐량 줄이기: 가격 절약의 첫걸음</h3>
+            <p><strong>원룸이사 비용</strong> 절감의 90%는 짐의 양을 줄이는 것에서 시작됩니다. 1톤을 1.5톤으로 만드는 불필요한 짐은 과감히 정리해야 합니다. 짐이 줄면 차량 크기가 작아지고, 작업 시간과 인력이 줄어들어 <strong>원룸포장이사 가격</strong>이 직접적으로 내려갑니다.</p>
+            <ul>
+                <li><strong>중고 거래 활용:</strong> 사용하지 않는 가구나 가전(예: 오래된 소형 냉장고, 책장)은 이사 전에 중고 플랫폼을 이용해 처분합니다.</li>
+                <li><strong>서류 및 잡동사니 정리:</strong> 수납장이나 책꽂이에 쌓인 잡동사니를 정리하여 박스 수를 줄입니다. 이는 <strong>반포장이사 가격</strong>을 비교할 때도 중요한 기준이 됩니다.</li>
+            </ul>
+
+            <h3>2. 비수기 및 주중 이사 선택</h3>
+            <p>앞서 언급했듯이, 손 없는 날을 피하고, 1월, 7월, 8월의 주중 이사를 선택하면 <span style="font-weight: bold; color: var(--secondary-color);">20% 이상의 할인</span> 효과를 볼 수 있습니다. 이사 날짜의 유연성이 곧 <strong>1톤 포장이사 가격</strong>의 유연성으로 이어집니다.</p>
+
+            <h3>3. 방문 견적은 필수</h3>
+            <p>전화나 온라인 견적은 대략적인 참고용일 뿐입니다. 정확한 <strong>원룸포장이사 가격</strong>을 산출하기 위해서는 반드시 전문 매니저의 방문 견적을 받아야 합니다. 실제 짐량과 작업 환경(계단, 주차 난이도)을 눈으로 확인해야 추가 요금 발생을 예방할 수 있습니다. <a href="https://www.move.go.kr/portal/info/info_03.do" target="_blank" class="external-link">이사화물 운송 주선사업자 정보(국토교통부)</a>를 통해 정식 등록 업체인지 확인하세요.</p>
+
+            <h3>4. 계약서 작성 시 세부 사항 명시</h3>
+            <p>구두 계약은 분쟁의 씨앗입니다. 계약서에는 최종 <strong>원룸이사 비용</strong>, 포함/제외 서비스(예: 에어컨 설치, 벽걸이 TV), 추가 요금 발생 기준, 피해보상 규정 등을 상세히 명시해야 합니다. 이는 <strong>반포장이사</strong>를 선택했을 때 고객과 업체의 책임 소재를 명확히 하는 데 특히 중요합니다.</p>
+        </section>
+
+        <section class="section-box" id="reliability">
+            <h2>📜 원룸포장이사 계약의 신뢰성과 안전성 확보</h2>
+            <p>이사 서비스는 신뢰가 중요합니다. 저희는 고객님의 소중한 자산을 안전하게 운반하기 위해 법적인 책임과 의무를 다합니다. 2026년 이사 시장의 투명성 확보를 위해 다음의 사항들을 준수합니다.</p>
+            <ul>
+                <li><strong>화물 자동차 운송 주선 사업 허가:</strong> 정식 허가를 받은 전문 이사업체와 계약해야 합니다. 허가 여부는 해당 지방자치단체나 화물운송정보 시스템을 통해 확인 가능합니다.</li>
+                <li><strong>적재물 배상 책임보험 가입:</strong> 모든 계약은 법적 의무 사항인 적재물 배상 책임보험에 가입되어 있습니다. 이사 중 발생한 파손, 분실 등의 사고에 대비하여 고객님께 최대의 보상을 보장합니다. 사고 발생 시 절차에 대한 내용은 <a href="https://www.k-sure.or.kr/main/main.do" target="_blank" class="external-link">이사화물 관련 보험 기관 정보(무역보험공사)</a>를 참고할 수 있습니다.</li>
+                <li><strong>소비자 피해 구제 신청:</strong> 만약의 경우 서비스 불만족이나 피해가 발생했을 때, 소비자 보호를 위한 기관을 통한 구제 신청이 가능합니다. <a href="https://www.kca.go.kr/index.do" target="_blank" class="external-link">한국소비자원 피해 구제 신청 안내</a>를 활용하세요.</li>
+            </ul>
+        </section>
+
+        <section class="form-section" id="estimate-form">
+            <h2>📝 **원룸포장이사 가격** 상세 무료 견적 요청 (체류 시간 극대화)</h2>
+            <p>아래 정보를 자세히 입력해 주시면, 고객님의 조건에 가장 정확하게 맞는 <strong>2026년 1톤 포장이사 가격</strong> 견적을 산출하여 신속하게 연락드리겠습니다. 자세한 정보는 정확한 견적 산출에 필수적입니다.</p>
+
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="name">성함</label>
+                    <input type="text" id="name" name="name" required placeholder="예: 홍길동">
+                </div>
+                <div class="input-group">
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="예: 010-1234-5678">
+                </div>
+                <div class="input-group">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" placeholder="예: example@email.com (견적서 발송용)">
+                </div>
+                <div class="input-group">
+                    <label for="move-date">희망 이사 날짜 (2026년 기준)</label>
+                    <input type="date" id="move-date" name="move-date" required value="2026-03-15">
+                    <small>날짜 유연성이 클수록 **원룸포장이사 가격**이 낮아질 수 있습니다.</small>
+                </div>
+                <hr style="margin: 30px 0;">
+
+                <div class="input-group">
+                    <label for="move-type">선호하는 이사 형태</label>
+                    <select id="move-type" name="move-type" required>
+                        <option value="">선택하세요</option>
+                        <option value="포장이사">원룸포장이사 (모두 맡김)</option>
+                        <option value="반포장이사">반포장이사 (잔짐 직접)</option>
+                        <option value="일반이사">일반이사 (운반만)</option>
+                    </select>
+                    <small>**반포장이사 가격**이 궁금하시면 해당 옵션을 선택해 주세요.</small>
+                </div>
+                <div class="input-group">
+                    <label for="current-address-region">현재 거주지 (출발) 지역</label>
+                    <input type="text" id="current-address-region" name="current-address-region" required placeholder="예: 서울 강남구 또는 대전 유성구">
+                </div>
+                <div class="input-group">
+                    <label for="target-address-region">이동할 거주지 (도착) 지역</label>
+                    <input type="text" id="target-address-region" name="target-address-region" required placeholder="예: 경기 수원시 또는 부산 해운대구">
+                </div>
+                <hr style="margin: 30px 0;">
+
+                <div class="input-group">
+                    <label for="current-floor">현재 거주 층수</label>
+                    <input type="number" id="current-floor" name="current-floor" required min="1" placeholder="예: 4 (층)">
+                    <small>4층 이상 시 사다리차 사용 여부 확인이 필요하며, **1톤 포장이사 가격**에 영향을 줍니다.</small>
+                </div>
+                <div class="input-group">
+                    <label for="target-floor">도착지 거주 층수</label>
+                    <input type="number" id="target-floor" name="target-floor" required min="1" placeholder="예: 2 (층)">
+                </div>
+                <div class="input-group">
+                    <label for="major-items">주요 큰 짐 목록 (선택 항목)</label>
+                    <textarea id="major-items" name="major-items" rows="3" placeholder="예: 퀸 사이즈 침대 1개, 3인용 소파 1개, 양문형 냉장고 1개, 5단 서랍장 2개"></textarea>
+                    <small>짐량이 **1톤 포장이사** 기준을 초과하는지 판단하는 중요한 정보입니다.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="special-requests">특이 사항 및 요청 사항</label>
+                    <textarea id="special-requests" name="special-requests" rows="4" placeholder="예: 에어컨 분리/설치 필요, 붙박이장 해체/설치, 피아노 운반 요청 등"></textarea>
+                </div>
+
+                <button type="submit" class="cta-btn" style="width: 100%; background-color: var(--secondary-color);">💰 맞춤형 **원룸포장이사 가격** 견적 요청하기</button>
+            </form>
+            <blockquote style="margin-top: 20px;">
+                <p><strong>참고:</strong> 위 정보는 견적 산출을 위한 최소한의 정보입니다. 더욱 정확한 **원룸이사 비용** 확인을 위해 담당 매니저가 전화 상담 및 방문 견적을 요청할 수 있습니다.</p>
+                <a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=204000&efYd=20180418#0000" target="_blank" class="external-link">관련 법규 확인 (국가법령정보센터)</a>
+            </blockquote>
+        </section>
+        
+        <section class="section-box" id="contact-info">
+            <h2>📞 신뢰할 수 있는 이사 상담 센터</h2>
+            <p><strong>전화 상담:</strong> 010-1234-5678 (2026년 이사 상담 가능)<br>
+            <strong>카카오톡 채널:</strong> @전국이사비용센터<br>
+            <strong>이메일 문의:</strong> help-price@example.com</p>
+        </section>
+
     </main>
-  </body>
+
+    <footer>
+        <p>Copyright &copy; 2026 전국 포장이사 가격 비교 센터. All rights reserved.</p>
+    </footer>
+
+</body>
 </html>
